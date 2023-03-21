@@ -1,5 +1,5 @@
 const { catchAsync } = require('../../utils') 
-const Contact = require('../../models/contactModel')
+const { Contact } = require('../../models/contacts');
 
 /**
  * Get contact by id.

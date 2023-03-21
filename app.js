@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './.env' });
 
-const contactRouter = require('./routes/api/contactsRouts')
+const { contactRouter } = require('./routes/api/contacts');
 
 const app = express()
 
