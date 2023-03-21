@@ -1,4 +1,4 @@
-const { catchAsync } = require('../../utils') 
+const { catchAsync } = require('../../utils/contacts') 
 const { Contact } = require('../../models/contacts');
 
 /**

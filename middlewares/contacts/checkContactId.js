@@ -1,7 +1,7 @@
 const { Types } = require('mongoose');
 
 const { Contact } = require('../../models/contacts');
-const { AppError, catchAsync } = require('../../utils');
+const { AppError, catchAsync } = require('../../utils/contacts');
 
 /**
  * Check contact id.

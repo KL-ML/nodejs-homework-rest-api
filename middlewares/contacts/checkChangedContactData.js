@@ -1,4 +1,4 @@
-const { AppError, validators } = require('../../utils');
+const { AppError, validators } = require('../../utils/contacts');
 
 /**
  * Check changed contact data.

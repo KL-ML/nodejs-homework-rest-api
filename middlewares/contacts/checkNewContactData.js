@@ -1,4 +1,4 @@
-const { AppError, catchAsync, validators } = require('../../utils');
+const { AppError, catchAsync, validators } = require('../../utils/contacts');
 
 /**
  * Check new contact data.
