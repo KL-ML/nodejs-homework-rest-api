@@ -1,7 +1,7 @@
 const express = require('express')
 
-const contactController = require('../../controllers/contactController')
-const contactMiddlewares = require('../../middlewares/contactMiddlewares')
+const contactController = require('../../../controllers/contacts')
+const contactMiddlewares = require('../../../middlewares/contacts')
 
 const router = express.Router()
 
@@ -24,6 +24,10 @@ router
   )
   .delete(contactController.removeContact);
 
+router
+  .route('/:id/favorite')
+  .patch(
+  contactMiddlewares.checkStatusData,
+  contactController.updateStatusContact
+)
 module.exports = router;
-
-module.exports = router
