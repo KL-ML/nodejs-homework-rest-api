@@ -1,5 +1,7 @@
-const {checkSignupUserData} = require("./checkSignupUserData");
+const { checkUserData } = require("./checkUserData");
+const { checkUserExist } = require('./checkUserExist');
 
 module.exports = {
-    checkSignupUserData,
+    checkUserData,
+    checkUserExist
 }

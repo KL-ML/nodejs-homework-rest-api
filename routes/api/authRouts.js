@@ -6,10 +6,18 @@ const authController = require('../../controllers/auth');
 const router = express.Router();
 
 router
-    .route('/signup')
+    .route('/register')
     .post(
-        authMiddleware.checkSignupUserData,
+        authMiddleware.checkUserData,
+        authMiddleware.checkUserExist,
         authController.register
+);
+
+router
+    .route('/login')
+    .post(
+        authMiddleware.checkUserData,
+        authController.login
     );
 // router.post('/login', authController.login);
 
