@@ -1,11 +1,11 @@
 const { catchAsync } = require('../../utils');
 
-const { User } = require("../../models/userModel");
+const User = require("../../models/userModel");
 
 exports.register = catchAsync(async (req, res) => {
-  const newUserData = req.body;
+  console.log('constoller register body:', req.body);
 
-  const newUser = await User.create(newUserData);
+  const newUser = await User.create(req.body);
 
   // newUser.password = undefined;
 
