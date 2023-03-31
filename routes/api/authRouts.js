@@ -27,4 +27,11 @@ router
         authController.logout
     );
 
+router
+    .route('/current')
+    .post(
+        authMiddleware.checkToken,
+        authController.getCurrent
+    );
+
 module.exports = router;
