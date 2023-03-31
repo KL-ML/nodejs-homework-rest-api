@@ -2,32 +2,44 @@ const express = require('express')
 
 const contactController = require('../../controllers/contacts')
 const contactMiddlewares = require('../../middlewares/contacts')
+const authMiddleware = require('../../middlewares/auth');
 
 const router = express.Router()
 
 router.route('/')
-  .get(contactController.listContacts)
+  .get(
+    authMiddleware.checkToken,
+    contactController.listContacts
+  )
   .post(
+    authMiddleware.checkToken,
     contactMiddlewares.checkNewContactData,
     contactController.addContact
   );
   
 
-router.use('/:id', contactMiddlewares.checkContactId);
+router.use(
+  '/:id',
+  authMiddleware.checkToken,
+  contactMiddlewares.checkContactId
+);
 
 router
   .route('/:id')
-  .get(contactController.getById)
+  .get(authMiddleware.checkToken, contactController.getById)
   .patch(
+    authMiddleware.checkToken,
     contactMiddlewares.checkChangedContactData,
     contactController.updateContact
   )
-  .delete(contactController.removeContact);
+  .delete(authMiddleware.checkToken, contactController.removeContact);
 
 router
   .route('/:id/favorite')
   .patch(
-  contactMiddlewares.checkStatusData,
-  contactController.updateStatusContact
-)
+    authMiddleware.checkToken,
+    contactMiddlewares.checkStatusData,
+    contactController.updateStatusContact
+);
+  
 module.exports = router;

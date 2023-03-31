@@ -19,6 +19,12 @@ router
         authMiddleware.checkUserData,
         authController.login
     );
-// router.post('/login', authController.login);
+
+router
+    .route('/logout')
+    .post(
+        authMiddleware.checkToken,
+        authController.logout
+    );
 
 module.exports = router;
