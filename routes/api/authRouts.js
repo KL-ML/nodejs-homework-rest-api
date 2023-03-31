@@ -32,6 +32,14 @@ router
     .post(
         authMiddleware.checkToken,
         authController.getCurrent
+);
+    
+router
+    .route('/')
+    .patch(
+        authMiddleware.checkToken,
+        authMiddleware.checkUserSubscr,
+        authController.updateSubscription
     );
 
 module.exports = router;

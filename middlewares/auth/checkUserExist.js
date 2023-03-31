@@ -1,5 +1,5 @@
 const User = require('../../models/userModel');
-const { catchAsync, validator, AppError } = require('../../utils');
+const { catchAsync, AppError } = require('../../utils');
 
 /**
  * Check create new user data middleware
