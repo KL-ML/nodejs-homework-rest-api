@@ -1,9 +1,9 @@
 const AppError = require('./appError');
 const catchAsync = require('./catchAsync');
-const validators = require('./joiValidators');
+const validator = require('./joiValidator');
 
 module.exports = {
   AppError,
   catchAsync,
-  validators,
+  validator,
 };

@@ -1,5 +1,5 @@
-const { catchAsync } = require('../../utils/contacts') 
-const { Contact } = require('../../models/contacts');
+const { catchAsync } = require('../../utils') 
+const Contact = require('../../models/contactModel');
 
 /**
  * Create contact.

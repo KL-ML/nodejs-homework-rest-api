@@ -6,14 +6,14 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './.env' });
 
-const { contactRouter } = require('./routes/api/contacts');
+const contactRouter = require('./routes/api/contactsRouts');
+const userRouter = require('./routes/api/authRouts')
 
 const app = express()
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 
 mongoose.connect(process.env.DB_URL)
-// mongoose.connect('mongodb+srv://Kitty-Litty:KittiLitti951@contacts-db.pjdnlel.mongodb.net/db-contacts')
   .then(() => {
   console.log('Database connection successful')
   }).catch((err) => {
@@ -27,6 +27,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/contacts', contactRouter)
+app.use('/api/users', userRouter)
 
 /**
  * Handle "not found" requests
