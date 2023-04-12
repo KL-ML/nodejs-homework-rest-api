@@ -40,6 +40,14 @@ router
         authMiddleware.checkToken,
         authMiddleware.checkUserSubscr,
         authController.updateSubscription
-    );
+);
+    
+router
+    .route("/avatars")
+    .patch(
+    authMiddleware.checkToken,
+    authMiddleware.upload.single("avatar"),
+    // authController.updateAvatar
+);
 
 module.exports = router;
