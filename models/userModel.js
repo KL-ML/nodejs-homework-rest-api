@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
     },
     avatarURL: {
       type: String,
-      required: true,
     },
     token: {
         type: String,
@@ -40,7 +39,6 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-// Custom method
 userSchema.methods.checkPassword = (candidate, hash) => bcrypt.compare(candidate, hash);
 
 const User = mongoose.model('User', userSchema);

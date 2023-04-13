@@ -47,7 +47,7 @@ router
     .patch(
     authMiddleware.checkToken,
     authMiddleware.upload.single("avatar"),
-    // authController.updateAvatar
+    authController.updateAvatar
 );
 
 module.exports = router;

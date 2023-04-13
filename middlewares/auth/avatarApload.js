@@ -1,9 +1,3 @@
-// const ImageService = require("../../servises/imageService");
-
-
-// exports.uploadUserPhoto = ImageService.upload('avatar');
-
-
 const multer = require("multer");
 const path = require("path");
 
