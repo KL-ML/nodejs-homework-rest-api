@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
         enum: Object.values(userSubscrEnum),
         default: "starter"
     },
+    avatarURL: {
+      type: String,
+    },
     token: {
         type: String,
         default: null,
@@ -36,7 +39,6 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-// Custom method
 userSchema.methods.checkPassword = (candidate, hash) => bcrypt.compare(candidate, hash);
 
 const User = mongoose.model('User', userSchema);
