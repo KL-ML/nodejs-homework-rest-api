@@ -14,6 +14,19 @@ router
 );
 
 router
+    .route('/verify/:verificationToken')
+    .get(
+        authController.verifyEmail
+    );
+
+router
+    .route('/verify')
+    .post(
+        authMiddleware.checkVerifyEmail,
+        authController.resendVerifyEmail
+    );
+
+router
     .route('/login')
     .post(
         authMiddleware.checkUserData,
