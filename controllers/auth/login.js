@@ -14,6 +14,8 @@ exports.login = catchAsync(async (req, res, next) => {
 
     if (!user) return next(new AppError(401, 'Email or password is wrong'));
 
+    if (!user.verify) return next(new AppError(401, 'Email not verify'));
+    
     const passwordIsValid = await user.checkPassword(password, user.password);
 
     if (!passwordIsValid) return next(new AppError(401, 'Email or password is wrong'));
